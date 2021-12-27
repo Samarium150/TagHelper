@@ -20,7 +20,7 @@ def baseVersion = '1.0.0'
 def minecraftVersion = '1.15.2'
 version = "${minecraftVersion}-${baseVersion}" as Object
 group = 'io.github.samarium150'
-archivesBaseName = 'tag-helper'
+archivesBaseName = 'taghelper'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
@@ -82,7 +82,7 @@ tasks.withType(JavaCompile) {
 tasks.named("jar").configure {
     manifest {
         attributes([
-                "Specification-Title": "tag-helper",
+                "Specification-Title": project.name,
                 "Specification-Vendor": "Samarium",
                 "Specification-Version": "1",
                 "Implementation-Title": project.name,

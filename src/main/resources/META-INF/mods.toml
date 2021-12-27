@@ -4,11 +4,11 @@ issueTrackerURL="https://github.com/Samarium150/TagHelper/issues"
 license="GNU GENERAL PUBLIC LICENSE Version 3"
 
 [[mods]]
-    modId="tag-helper"
+    modId="taghelper"
     version="${file.jarVersion}"
     displayName="Tag Helper"
-    updateJSONURL=""
-#    displayURL=""
+    updateJSONURL="https://raw.githubusercontent.com/Samarium150/TagHelper/main/docs/update.json"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/taghelper"
     logoFile="logo.png"
     authors="Samarium"
     description='''
