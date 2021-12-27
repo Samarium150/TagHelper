@@ -1,0 +1,16 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+issueTrackerURL="https://github.com/Samarium150/TagHelper/issues"
+license="GNU GENERAL PUBLIC LICENSE Version 3"
+
+[[mods]]
+    modId="tag-helper"
+    version="${file.jarVersion}"
+    displayName="Tag Helper"
+    updateJSONURL=""
+#    displayURL=""
+    logoFile="logo.png"
+    authors="Samarium"
+    description='''
+    Mod for editing NBT by commands
+    '''
