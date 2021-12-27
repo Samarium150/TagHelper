@@ -9,11 +9,11 @@ A Minecraft mod for editing **Named Binary Tags** (NBT) by commands.
 - `/tag-helper get`  
   Get NBT of the item on the main hand.
 - `/tag-helper set <key> <value>`  
-  Add or Replace`{tag: value}` in NBT of the item on the main hand.
+  Add or Replace`{key: value}` in NBT of the item on the main hand.
 - `/tag-helper set <NBT>`  
   Set NBT of the item on the main hand as `<NBT>`
 - `/tag-helper remove <key>`  
-  Remove `{tag: value}` in NBT of the item on the main hand.
+  Remove `{key: value}` in NBT of the item on the main hand.
 - `/tag-helper remove`  
   Remove NBT of the item on the main hand.
 
