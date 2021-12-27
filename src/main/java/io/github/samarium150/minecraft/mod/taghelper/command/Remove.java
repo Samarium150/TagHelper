@@ -13,7 +13,7 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 import javax.annotation.Nonnull;
@@ -32,11 +32,11 @@ public final class Remove {
             if (targetNBT == null) return Command.SINGLE_SUCCESS;
             targetNBT.remove(tag);
             item.setTag(targetNBT);
-            ITextComponent text = new StringTextComponent("current NBT: ")
-                    .appendSibling(targetNBT.toFormattedComponent());
-            source.sendFeedback(text, false);
+            IFormattableTextComponent text = new StringTextComponent("current NBT: ")
+                    .append(targetNBT.getPrettyDisplay());
+            source.sendSuccess(text, false);
         } else
-            source.sendErrorMessage(new StringTextComponent("remove command is disabled in config"));
+            source.sendFailure(new StringTextComponent("remove command is disabled in config"));
         return Command.SINGLE_SUCCESS;
     }
     
@@ -46,9 +46,9 @@ public final class Remove {
             ItemStack item = CommandUtil.getMainHandItem(source);
             if (item == null) return Command.SINGLE_SUCCESS;
             item.setTag(null);
-            source.sendFeedback(new StringTextComponent("NBT is removed"), false);
+            source.sendSuccess(new StringTextComponent("NBT is removed"), false);
         } else
-            source.sendErrorMessage(new StringTextComponent("remove command is disabled in config"));
+            source.sendFailure(new StringTextComponent("remove command is disabled in config"));
         return Command.SINGLE_SUCCESS;
     }
     

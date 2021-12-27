@@ -16,7 +16,7 @@ import net.minecraft.command.arguments.NBTTagArgument;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 import javax.annotation.Nonnull;
@@ -34,11 +34,11 @@ public final class Set {
             CompoundNBT targetNBT = item.getOrCreateTag();
             targetNBT.put(tag, value);
             item.setTag(targetNBT);
-            ITextComponent text = new StringTextComponent("current NBT: ")
-                    .appendSibling(targetNBT.toFormattedComponent());
-            source.sendFeedback(text, false);
+            IFormattableTextComponent text = new StringTextComponent("current NBT: ")
+                    .append(targetNBT.getPrettyDisplay());
+            source.sendSuccess(text, false);
         } else
-            source.sendErrorMessage(new StringTextComponent("set command is disabled in config"));
+            source.sendFailure(new StringTextComponent("set command is disabled in config"));
         return Command.SINGLE_SUCCESS;
     }
     
@@ -49,11 +49,11 @@ public final class Set {
             ItemStack item = CommandUtil.getMainHandItem(source);
             if (item == null) return Command.SINGLE_SUCCESS;
             item.setTag(targetNBT);
-            ITextComponent text = new StringTextComponent("current NBT: ")
-                    .appendSibling(targetNBT.toFormattedComponent());
-            source.sendFeedback(text, false);
+            IFormattableTextComponent text = new StringTextComponent("current NBT: ")
+                    .append(targetNBT.getPrettyDisplay());
+            source.sendSuccess(text, false);
         } else
-            source.sendErrorMessage(new StringTextComponent("set command is disabled in config"));
+            source.sendFailure(new StringTextComponent("set command is disabled in config"));
         return Command.SINGLE_SUCCESS;
     }
     
@@ -61,16 +61,16 @@ public final class Set {
         LiteralArgumentBuilder<CommandSource> literal = CommandUtil.literal
                 .then(Commands.literal("set")
                         .then(Commands.argument("key", StringArgumentType.string())
-                                .then(Commands.argument("value", NBTTagArgument.func_218085_a())
+                                .then(Commands.argument("value", NBTTagArgument.nbtTag())
                                         .executes(context -> executes(context,
                                                 StringArgumentType.getString(context, "key"),
-                                                NBTTagArgument.func_218086_a(context, "value"))
+                                                NBTTagArgument.getNbtTag(context, "value"))
                                         )
                                 )
                         )
-                        .then(Commands.argument("NBT", NBTCompoundTagArgument.nbt())
+                        .then(Commands.argument("NBT", NBTCompoundTagArgument.compoundTag())
                                 .executes(context -> executes(context,
-                                        NBTCompoundTagArgument.getNbt(context, "NBT"))
+                                        NBTCompoundTagArgument.getCompoundTag(context, "NBT"))
                                 )
                         )
                 );

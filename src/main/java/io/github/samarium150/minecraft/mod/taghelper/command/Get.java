@@ -12,7 +12,7 @@ import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
 import javax.annotation.Nonnull;
@@ -27,14 +27,14 @@ public final class Get {
             ItemStack item = CommandUtil.getMainHandItem(source);
             if (item == null) return Command.SINGLE_SUCCESS;
             CompoundNBT targetNBT = item.getTag();
-            ITextComponent text = new StringTextComponent("NBT: ");
+            IFormattableTextComponent text = new StringTextComponent("NBT: ");
             if (targetNBT == null)
-                text.appendText("null");
+                text.append("null");
             else
-                text.appendSibling(targetNBT.toFormattedComponent());
-            source.sendFeedback(text, false);
+                text.append(targetNBT.getPrettyDisplay());
+            source.sendSuccess(text, false);
         } else
-            source.sendErrorMessage(new StringTextComponent("get command is disabled in config"));
+            source.sendFailure(new StringTextComponent("get command is disabled in config"));
         return Command.SINGLE_SUCCESS;
     }
     

@@ -16,15 +16,15 @@ public final class CommandUtil {
     private CommandUtil() { }
     
     public static final LiteralArgumentBuilder<CommandSource> literal = Commands.literal(GeneralUtil.MOD_ID)
-            .requires(commandSource -> commandSource.hasPermissionLevel(2));
+            .requires(commandSource -> commandSource.hasPermission(2));
     public static final LiteralArgumentBuilder<CommandSource> alias = Commands.literal("th");
     
     @Nullable
     public static ItemStack getMainHandItem(@Nonnull CommandSource source) throws CommandSyntaxException {
-        ServerPlayerEntity player = source.asPlayer();
-        ItemStack item = player.getHeldItem(player.getActiveHand());
+        ServerPlayerEntity player = source.getPlayerOrException();
+        ItemStack item = player.getMainHandItem();
         if (item.isEmpty()) {
-            source.sendErrorMessage(new StringTextComponent("no item in the main hand"));
+            source.sendFailure(new StringTextComponent("no item in the main hand"));
             return null;
         }
         return item;
