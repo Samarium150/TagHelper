@@ -1,1 +1,25 @@
-{}
+{
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/taghelper",
+  "1.15.2": {
+    "1.0.0": "https://www.curseforge.com/minecraft/mc-mods/taghelper/files/3582754"
+  },
+  "1.16.5": {
+    "1.0.0": "https://www.curseforge.com/minecraft/mc-mods/taghelper/files/3582756"
+  },
+  "1.17.1": {
+    "1.0.0": "https://www.curseforge.com/minecraft/mc-mods/taghelper/files/3582757"
+  },
+  "1.18.1": {
+    "1.0.0": "https://www.curseforge.com/minecraft/mc-mods/taghelper/files/3582760"
+  },
+  "promos": {
+    "1.15.2-latest": "1.0.0",
+    "1.15.2-recommended": "1.0.0",
+    "1.16.5-latest": "1.0.0",
+    "1.16.5-recommended": "1.0.0",
+    "1.17.1-latest": "1.0.0",
+    "1.17.1-recommended": "1.0.0",
+    "1.18.1-latest": "1.0.0",
+    "1.18.1-recommended": "1.0.0"
+  }
+}
