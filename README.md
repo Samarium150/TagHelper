@@ -1,4 +1,6 @@
 # TagHelper
+[![Forge](http://cf.way2muchnoise.eu/560743.svg)](https://www.curseforge.com/minecraft/mc-mods/taghelper)
+[![Minecraft](http://cf.way2muchnoise.eu/versions/For%20MC_560743_all.svg)](https://minecraft.fandom.com/wiki)
 [![LICENSE](https://img.shields.io/github/license/Samarium150/TagHelper)](https://github.com/Samarium150/TagHelper/blob/main/LICENSE)
 [![Gradle CI](https://github.com/Samarium150/TagHelper/actions/workflows/Gradle%20CI.yml/badge.svg)](https://github.com/Samarium150/TagHelper/actions/workflows/Gradle%20CI.yml)
 
@@ -6,15 +8,15 @@ A Minecraft mod for editing **Named Binary Tags** (NBT) by commands.
 
 ## Usage
 
-- `/tag-helper get`  
+- `/taghelper get`  
   Get NBT of the item on the main hand.
-- `/tag-helper set <key> <value>`  
+- `/taghelper set <key> <value>`  
   Add or Replace`{key: value}` in NBT of the item on the main hand.
-- `/tag-helper set <NBT>`  
+- `/taghelper set <NBT>`  
   Set NBT of the item on the main hand as `<NBT>`
-- `/tag-helper remove <key>`  
+- `/taghelper remove <key>`  
   Remove `{key: value}` in NBT of the item on the main hand.
-- `/tag-helper remove`  
+- `/taghelper remove`  
   Remove NBT of the item on the main hand.
 
-`/th` is an alias of `/tag-helper`
+`/th` is an alias of `/taghelper`
