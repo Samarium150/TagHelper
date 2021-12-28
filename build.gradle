@@ -17,12 +17,12 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 def baseVersion = '1.0.0'
-def minecraftVersion = '1.17.1'
+def minecraftVersion = '1.18.1'
 version = "${minecraftVersion}-${baseVersion}" as Object
 group = 'io.github.samarium150'
 archivesBaseName = 'taghelper'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 logger.quiet('Java: {} JVM: {}({}) Arch: {}',
         System.getProperty('java.version'),
@@ -72,7 +72,7 @@ minecraft {
 // sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.1.1'
+    minecraft 'net.minecraftforge:forge:1.18.1-39.0.9'
 }
 
 tasks.withType(JavaCompile) {
