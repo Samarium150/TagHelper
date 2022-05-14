@@ -8,6 +8,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import io.github.samarium150.minecraft.mod.taghelper.config.TagHelperConfig;
 import io.github.samarium150.minecraft.mod.taghelper.util.CommandUtil;
+import io.github.samarium150.minecraft.mod.taghelper.util.GeneralUtil;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.item.ItemStack;
@@ -31,7 +32,7 @@ public final class Get {
             if (targetNBT == null)
                 text.append("null");
             else
-                text.append(targetNBT.getPrettyDisplay());
+                text.append(GeneralUtil.getPrettyDisplay(targetNBT.toString()));
             source.sendSuccess(text, false);
         } else
             source.sendFailure(new StringTextComponent("get command is disabled in config"));

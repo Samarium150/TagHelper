@@ -16,7 +16,8 @@ plugins {
 }
 apply plugin: 'net.minecraftforge.gradle'
 
-def baseVersion = '1.0.0'
+def prevVersion = '1.0.0'
+def baseVersion = '1.1.0'
 def minecraftVersion = '1.16.5'
 version = "${minecraftVersion}-${baseVersion}" as Object
 group = 'io.github.samarium150'
@@ -73,6 +74,7 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.22'
+    implementation 'com.google.code.gson:gson:2.8.9'
 }
 
 tasks.withType(JavaCompile) {
@@ -97,6 +99,7 @@ jar.finalizedBy('reobfJar')
 changelog {
     appName "${project.name}"
     versionNum "${project.version}"
+    from "${minecraftVersion}-${prevVersion}"
     repoUrl "https://github.com/Samarium150/TagHelper"
     trackerUrl "https://github.com/Samarium150/TagHelper/issues"
 }
